@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="{% url 'usermanager:registerapi' %}" method="post" class="comment-form">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-4">
+      <label for="{{ form.username.id_for_label }}">名字：</label>
+      {{ form.username }}
+      {{ form.username.errors }}
+    </div>
+    <div class="col-md-4">
+      <label for="{{ form.email.id_for_label }}">邮箱：</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+    </div>
+    <div class="col-md-4">
+      <label for="{{ form.password.id_for_label }}">密码：</label>
+      {{ form.password }}
+      {{ form.password.errors }}
+    </div>
+    <div class="col-md-12">
+      <label for="{{ form.password2.id_for_label }}">确认密码：</label>
+      {{ form.password2 }}
+      {{ form.password2.errors }}
+      <button type="submit" class="comment-btn">注册</button>
+    </div>
+  </div>    <!-- row -->
+</form>
+ {% endblock main %}
